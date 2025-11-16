@@ -2,6 +2,7 @@ import { Express, Request, Response } from "express";
 import registerUserRoutes from "./user.routes";
 import registerSessionRoutes from "./session.routes";
 import registerProductRoutes from "./product.routes";
+import registerTodoRoutes from "./todo.routes";
 
 export default function registerRoutes(app: Express) {
   /**
@@ -20,5 +21,6 @@ export default function registerRoutes(app: Express) {
   registerUserRoutes(app);
   registerSessionRoutes(app);
   registerProductRoutes(app);
+  registerTodoRoutes(app);
 }
 
