@@ -53,14 +53,13 @@
   },
   "license": "MIT",
   "author": "technojerry",
-  "type": "module",
   "main": "server.ts",
   "scripts": {
     "dev": "nodemon --watch src --exec ts-node src/server.ts",
     "serve": "ts-node src/server.ts",
     "test": "jest",
     "build": "tsc",
-    "start": "node dist/server.js"
+    "start": "node build/server.js"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
