@@ -33,6 +33,14 @@ npm run build
 npm start
 ```
 
+### Postman
+- Collection file: `postman/Todos List API.postman_collection.json`
+- Variables:
+  - `baseUrl` (default `http://localhost:5050`)
+  - `accessToken` (set after login)
+  - `productId`, `todoId` (set from created resources)
+- Import into Postman and run requests in order: Register → Login → set `accessToken` → CRUD endpoints.
+
 ### Tech
 - Express 5, TypeScript (strict), Mongoose 8
 - Validation with Zod

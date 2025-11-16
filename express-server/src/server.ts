@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 import config from "config";
 import connect from "./utils/connect";
 import logger from "./utils/logger";
-import routes from "./routes";
+import routes from "./routes/index.routes";
 import { startMetricsServer } from "./utils/metrics";
 import swaggerDocs from "./utils/swagger";
 import app from "./app";
