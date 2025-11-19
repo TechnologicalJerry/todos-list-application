@@ -1,15 +1,31 @@
-import fastify from "fastify";
+import { buildApp } from './app';
+import { envConfig } from './config/env.config';
 
-const server = fastify();
+async function start() {
+  try {
+    const app = await buildApp();
 
-server.get("/ping", async (request, reply) => {
-  return "pong\n";
-});
+    await app.listen({
+      port: envConfig.PORT,
+      host: envConfig.HOST,
+    });
 
-server.listen({ port: 8080 }, (err, address) => {
-  if (err) {
-    console.error(err);
+    console.log(`Server listening on ${envConfig.HOST}:${envConfig.PORT}`);
+  } catch (err) {
+    console.error('Error starting server:', err);
     process.exit(1);
   }
-  console.log(`Server listening at ${address}`);
+}
+
+// Handle graceful shutdown
+process.on('SIGTERM', async () => {
+  console.log('SIGTERM received, shutting down gracefully');
+  process.exit(0);
 });
+
+process.on('SIGINT', async () => {
+  console.log('SIGINT received, shutting down gracefully');
+  process.exit(0);
+});
+
+start();
