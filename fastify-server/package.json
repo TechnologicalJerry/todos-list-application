@@ -1,31 +1,55 @@
 {
   "name": "todos-list-application",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/server.ts",
-    "build": "tsc -p tsconfig.json",
-    "start": "node index.js"
+  "description": "A scalable Fastify backend with TypeScript, MongoDB, authentication, and REST API structure.",
+  "keywords": [
+    "fastify",
+    "typescript",
+    "mongodb",
+    "backend",
+    "api",
+    "jwt"
+  ],
+  "homepage": "https://github.com/TechnologicalJerry/todos-list-application#readme",
+  "bugs": {
+    "url": "https://github.com/TechnologicalJerry/todos-list-application/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TechnologicalJerry/todos-list-application.git"
   },
+  "license": "MIT",
   "author": "technojerry",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/TechnologicalJerry/todos-list-application/issues"
+  "type": "module",
+  "main": "server.ts",
+  "scripts": {
+    "dev": "nodemon",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/server.js",
+    "test": "jest"
   },
-  "homepage": "https://github.com/TechnologicalJerry/todos-list-application#readme",
   "dependencies": {
-    "fastify": "^4.26.0",
-    "nodemon": "^3.0.3",
-    "todos-list-application": "file:"
+    "@fastify/cors": "^11.1.0",
+    "@fastify/jwt": "^10.0.0",
+    "@fastify/rate-limit": "^10.3.0",
+    "@fastify/sensible": "^6.0.3",
+    "@fastify/swagger": "^9.6.1",
+    "@fastify/swagger-ui": "^5.2.3",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.3",
+    "fastify": "^5.6.2",
+    "mongoose": "^8.20.0",
+    "zod": "^4.1.12"
   },
   "devDependencies": {
-    "@types/node": "^20.11.16",
-    "typescript": "^5.3.3"
+    "@types/bcrypt": "^6.0.0",
+    "@types/node": "^24.10.1",
+    "eslint": "^9.39.1",
+    "nodemon": "^3.1.11",
+    "prettier": "^3.6.2",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
   }
 }
