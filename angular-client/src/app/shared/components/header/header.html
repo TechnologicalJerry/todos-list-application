@@ -1,1 +1,30 @@
-<p>header works!</p>
+<header class="sticky top-0 z-50 bg-slate-900/80 backdrop-blur border-b border-slate-800">
+  <nav class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4 text-white">
+    <a routerLink="/" class="text-xl font-semibold tracking-tight">
+      Todos<span class="text-sky-400">Flow</span>
+    </a>
+
+    <div class="flex items-center gap-6 text-sm">
+      <a routerLink="/" class="text-slate-200 transition hover:text-white">
+        Home
+      </a>
+        <a routerLink="/about" class="text-slate-200 transition hover:text-white">
+          About
+        </a>
+      <div class="flex items-center gap-3">
+        <a
+          routerLink="/auth/login"
+          class="rounded-full border border-slate-700 px-4 py-2 text-slate-100 transition hover:border-sky-400 hover:text-white"
+        >
+          Log in
+        </a>
+        <a
+          routerLink="/auth/signup"
+          class="rounded-full bg-sky-500 px-4 py-2 font-semibold text-slate-950 transition hover:bg-sky-400"
+        >
+          Sign up
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
