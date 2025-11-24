@@ -1,34 +1,62 @@
-<section class="min-h-[60vh] px-6 py-16 bg-gradient-to-b from-slate-900 to-slate-800 text-white flex flex-col gap-8 rounded-3xl shadow-2xl">
-  <div class="max-w-2xl">
-    <p class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-400">
-      Stay organized
-    </p>
-    <h1 class="mt-4 text-4xl font-bold leading-tight md:text-5xl">
-      Plan your day with a focused Todos flow
-    </h1>
-    <p class="mt-6 text-base text-slate-200 md:text-lg">
-      Capture tasks, prioritize what matters, and track progress across all of your devices. Your personal command center for productivity lives here.
-    </p>
-  </div>
+<section class="px-6 py-20 text-white">
+  <div class="mx-auto flex max-w-6xl flex-col gap-12 rounded-[40px] border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-900/90 to-slate-950 p-10 shadow-2xl shadow-slate-900/40 lg:flex-row lg:items-center">
+    <div class="flex-1 space-y-8">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-400">
+          Built for mindful makers
+        </p>
+        <h1 class="mt-4 text-4xl font-bold leading-tight md:text-5xl">
+          Flow through every task with clarity and momentum
+        </h1>
+        <p class="mt-4 text-base text-slate-200 md:text-lg">
+          TodosFlow keeps capture, planning, and review in one calm workspace. Signals keep the UI instantly in sync so your focus stays on meaningful work, not page refreshes.
+        </p>
+      </div>
 
-  <div class="grid gap-6 md:grid-cols-3">
-    <article class="rounded-2xl border border-slate-700 bg-slate-900/40 p-6 backdrop-blur">
-      <h2 class="text-lg font-semibold">Quick Capture</h2>
-      <p class="mt-2 text-sm text-slate-300">
-        Add tasks in seconds and keep everything in one place.
-      </p>
-    </article>
-    <article class="rounded-2xl border border-slate-700 bg-slate-900/40 p-6 backdrop-blur">
-      <h2 class="text-lg font-semibold">Smart Priorities</h2>
-      <p class="mt-2 text-sm text-slate-300">
-        Highlight what matters today with color-coded focus states.
-      </p>
-    </article>
-    <article class="rounded-2xl border border-slate-700 bg-slate-900/40 p-6 backdrop-blur">
-      <h2 class="text-lg font-semibold">Progress Insights</h2>
-      <p class="mt-2 text-sm text-slate-300">
-        Visualize wins at a glance and celebrate every streak.
-      </p>
-    </article>
+      <div class="flex flex-wrap gap-4">
+        <a
+          routerLink="/auth/signup"
+          class="rounded-2xl bg-sky-500 px-6 py-3 text-base font-semibold text-slate-950 transition hover:bg-sky-400"
+        >
+          Start tracking free
+        </a>
+        <a
+          routerLink="/about"
+          class="rounded-2xl border border-slate-700 px-6 py-3 text-base font-semibold text-slate-200 transition hover:border-sky-400 hover:text-white"
+        >
+          See how it works
+        </a>
+      </div>
+
+      <dl class="grid gap-6 text-sm text-slate-300 sm:grid-cols-3">
+        <div>
+          <dt class="text-slate-500">Daily tasks completed</dt>
+          <dd class="mt-1 text-3xl font-semibold text-white">5k+</dd>
+        </div>
+        <div>
+          <dt class="text-slate-500">Teams running</dt>
+          <dd class="mt-1 text-3xl font-semibold text-white">320+</dd>
+        </div>
+        <div>
+          <dt class="text-slate-500">Avg. focus streak</dt>
+          <dd class="mt-1 text-3xl font-semibold text-white">18 days</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="flex-1 space-y-5">
+      <article class="rounded-3xl border border-slate-800 bg-slate-900/60 p-6 backdrop-blur">
+        <h2 class="text-lg font-semibold">Quick Capture Inbox</h2>
+        <p class="mt-2 text-sm text-slate-300">Drop thoughts in seconds and sort them later without losing momentum.</p>
+      </article>
+      <article class="rounded-3xl border border-slate-800 bg-slate-900/60 p-6 backdrop-blur">
+        <h2 class="text-lg font-semibold">Adaptive Priority Zones</h2>
+        <p class="mt-2 text-sm text-slate-300">Signals surface today’s focus, tomorrow’s prep, and someday goals all in one glance.</p>
+      </article>
+      <article class="rounded-3xl border border-slate-800 bg-slate-900/60 p-6 backdrop-blur">
+        <h2 class="text-lg font-semibold">Progress Pulse</h2>
+        <p class="mt-2 text-sm text-slate-300">Micro charts celebrate streaks, balance, and time reclaimed each week.</p>
+      </article>
+    </div>
   </div>
 </section>
