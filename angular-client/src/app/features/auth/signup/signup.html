@@ -6,50 +6,63 @@
       <p class="mt-2 text-sm text-slate-400">Track tasks, focus priorities, and stay consistent.</p>
     </header>
 
-    <form class="space-y-6">
+    <form (ngSubmit)="onSubmit()" class="space-y-6">
       <label class="flex flex-col gap-2 text-sm">
         <span class="font-semibold text-slate-200">Full name</span>
         <input
           type="text"
-          name="name"
+          [field]="signupForm.name"
           class="rounded-2xl border border-slate-700 bg-slate-900/60 px-4 py-3 text-base text-slate-100 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/40"
           placeholder="Taylor Productivity"
         />
+        @if (signupForm.name().invalid() && signupForm.name().touched()) {
+          <span class="text-xs text-red-400">{{ signupForm.name().errors()[0]?.message }}</span>
+        }
       </label>
 
       <label class="flex flex-col gap-2 text-sm">
         <span class="font-semibold text-slate-200">Email</span>
         <input
           type="email"
-          name="email"
+          [field]="signupForm.email"
           class="rounded-2xl border border-slate-700 bg-slate-900/60 px-4 py-3 text-base text-slate-100 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/40"
           placeholder="you@email.com"
         />
+        @if (signupForm.email().invalid() && signupForm.email().touched()) {
+          <span class="text-xs text-red-400">{{ signupForm.email().errors()[0]?.message }}</span>
+        }
       </label>
 
       <label class="flex flex-col gap-2 text-sm">
         <span class="font-semibold text-slate-200">Password</span>
         <input
           type="password"
-          name="password"
+          [field]="signupForm.password"
           class="rounded-2xl border border-slate-700 bg-slate-900/60 px-4 py-3 text-base text-slate-100 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/40"
           placeholder="••••••••"
         />
+        @if (signupForm.password().invalid() && signupForm.password().touched()) {
+          <span class="text-xs text-red-400">{{ signupForm.password().errors()[0]?.message }}</span>
+        }
       </label>
 
       <label class="flex flex-col gap-2 text-sm">
         <span class="font-semibold text-slate-200">Confirm password</span>
         <input
           type="password"
-          name="confirmPassword"
+          [field]="signupForm.confirmPassword"
           class="rounded-2xl border border-slate-700 bg-slate-900/60 px-4 py-3 text-base text-slate-100 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/40"
           placeholder="••••••••"
         />
+        @if (signupForm.confirmPassword().invalid() && signupForm.confirmPassword().touched()) {
+          <span class="text-xs text-red-400">{{ signupForm.confirmPassword().errors()[0]?.message }}</span>
+        }
       </label>
 
       <button
         type="submit"
-        class="w-full rounded-2xl bg-sky-500 py-3 text-base font-semibold text-slate-950 transition hover:bg-sky-400"
+        [disabled]="!signupForm().valid()"
+        class="w-full rounded-2xl bg-sky-500 py-3 text-base font-semibold text-slate-950 transition hover:bg-sky-400 disabled:cursor-not-allowed disabled:opacity-50"
       >
         Create account
       </button>
