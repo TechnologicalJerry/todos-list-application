@@ -1,5 +1,5 @@
 <section class="flex min-h-[60vh] items-center justify-center bg-slate-950 px-6 py-16 text-slate-100">
-  <div class="w-full max-w-lg rounded-3xl border border-slate-800 bg-slate-900/70 p-8 shadow-2xl backdrop-blur">
+  <div class="w-full max-w-2xl rounded-3xl border border-slate-800 bg-slate-900/70 p-8 shadow-2xl backdrop-blur">
     <header class="mb-8 text-center">
       <p class="text-sm uppercase tracking-[0.4em] text-slate-500">Get started</p>
       <h1 class="mt-3 text-3xl font-bold">Create your TodosList account</h1>
@@ -7,64 +7,145 @@
     </header>
 
     <form (ngSubmit)="onSubmit()" class="space-y-6">
-      <label class="flex flex-col gap-2 text-sm">
-        <span class="font-semibold text-slate-200">Full name</span>
-        <input
-          type="text"
-          [field]="signupForm.name"
-          class="rounded-2xl border border-slate-700 bg-slate-900/60 px-4 py-3 text-base text-slate-100 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/40"
-          placeholder="Taylor Productivity"
-        />
-        @if (signupForm.name().invalid() && signupForm.name().touched()) {
-          <span class="text-xs text-red-400">{{ signupForm.name().errors()[0]?.message }}</span>
-        }
-      </label>
+      <div class="grid gap-6 md:grid-cols-2">
+        <label class="flex flex-col gap-2 text-sm">
+          <span class="font-semibold text-slate-200">Username</span>
+          <input
+            type="text"
+            [field]="signupForm.userName"
+            class="rounded-2xl border border-slate-700 bg-slate-900/60 px-4 py-3 text-base text-slate-100 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/40"
+            placeholder="johndoe"
+          />
+          @if (signupForm.userName().invalid() && signupForm.userName().touched()) {
+            <span class="text-xs text-red-400">{{ signupForm.userName().errors()[0]?.message }}</span>
+          }
+        </label>
 
-      <label class="flex flex-col gap-2 text-sm">
-        <span class="font-semibold text-slate-200">Email</span>
-        <input
-          type="email"
-          [field]="signupForm.email"
-          class="rounded-2xl border border-slate-700 bg-slate-900/60 px-4 py-3 text-base text-slate-100 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/40"
-          placeholder="you@email.com"
-        />
-        @if (signupForm.email().invalid() && signupForm.email().touched()) {
-          <span class="text-xs text-red-400">{{ signupForm.email().errors()[0]?.message }}</span>
-        }
-      </label>
+        <label class="flex flex-col gap-2 text-sm">
+          <span class="font-semibold text-slate-200">Email</span>
+          <input
+            type="email"
+            [field]="signupForm.email"
+            class="rounded-2xl border border-slate-700 bg-slate-900/60 px-4 py-3 text-base text-slate-100 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/40"
+            placeholder="you@email.com"
+          />
+          @if (signupForm.email().invalid() && signupForm.email().touched()) {
+            <span class="text-xs text-red-400">{{ signupForm.email().errors()[0]?.message }}</span>
+          }
+        </label>
 
-      <label class="flex flex-col gap-2 text-sm">
-        <span class="font-semibold text-slate-200">Password</span>
-        <input
-          type="password"
-          [field]="signupForm.password"
-          class="rounded-2xl border border-slate-700 bg-slate-900/60 px-4 py-3 text-base text-slate-100 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/40"
-          placeholder="••••••••"
-        />
-        @if (signupForm.password().invalid() && signupForm.password().touched()) {
-          <span class="text-xs text-red-400">{{ signupForm.password().errors()[0]?.message }}</span>
-        }
-      </label>
+        <label class="flex flex-col gap-2 text-sm">
+          <span class="font-semibold text-slate-200">First name</span>
+          <input
+            type="text"
+            [field]="signupForm.firstName"
+            class="rounded-2xl border border-slate-700 bg-slate-900/60 px-4 py-3 text-base text-slate-100 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/40"
+            placeholder="John"
+          />
+          @if (signupForm.firstName().invalid() && signupForm.firstName().touched()) {
+            <span class="text-xs text-red-400">{{ signupForm.firstName().errors()[0]?.message }}</span>
+          }
+        </label>
 
-      <label class="flex flex-col gap-2 text-sm">
-        <span class="font-semibold text-slate-200">Confirm password</span>
-        <input
-          type="password"
-          [field]="signupForm.confirmPassword"
-          class="rounded-2xl border border-slate-700 bg-slate-900/60 px-4 py-3 text-base text-slate-100 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/40"
-          placeholder="••••••••"
-        />
-        @if (signupForm.confirmPassword().invalid() && signupForm.confirmPassword().touched()) {
-          <span class="text-xs text-red-400">{{ signupForm.confirmPassword().errors()[0]?.message }}</span>
-        }
-      </label>
+        <label class="flex flex-col gap-2 text-sm">
+          <span class="font-semibold text-slate-200">Last name</span>
+          <input
+            type="text"
+            [field]="signupForm.lastName"
+            class="rounded-2xl border border-slate-700 bg-slate-900/60 px-4 py-3 text-base text-slate-100 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/40"
+            placeholder="Doe"
+          />
+          @if (signupForm.lastName().invalid() && signupForm.lastName().touched()) {
+            <span class="text-xs text-red-400">{{ signupForm.lastName().errors()[0]?.message }}</span>
+          }
+        </label>
+
+        <label class="flex flex-col gap-2 text-sm">
+          <span class="font-semibold text-slate-200">Contact</span>
+          <input
+            type="number"
+            [field]="signupForm.contact"
+            class="rounded-2xl border border-slate-700 bg-slate-900/60 px-4 py-3 text-base text-slate-100 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/40"
+            placeholder="1234567890"
+          />
+          @if (signupForm.contact().invalid() && signupForm.contact().touched()) {
+            <span class="text-xs text-red-400">{{ signupForm.contact().errors()[0]?.message }}</span>
+          }
+        </label>
+
+        <label class="flex flex-col gap-2 text-sm">
+          <span class="font-semibold text-slate-200">Gender</span>
+          <select
+            [field]="signupForm.gender"
+            class="rounded-2xl border border-slate-700 bg-slate-900/60 px-4 py-3 text-base text-slate-100 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/40"
+          >
+            <option value="">Select gender</option>
+            @for (option of genderOptions; track option.value) {
+              <option [value]="option.value">{{ option.label }}</option>
+            }
+          </select>
+          @if (signupForm.gender().invalid() && signupForm.gender().touched()) {
+            <span class="text-xs text-red-400">{{ signupForm.gender().errors()[0]?.message }}</span>
+          }
+        </label>
+
+        <label class="flex flex-col gap-2 text-sm">
+          <span class="font-semibold text-slate-200">Date of birth</span>
+          <input
+            type="date"
+            [field]="signupForm.dob"
+            class="rounded-2xl border border-slate-700 bg-slate-900/60 px-4 py-3 text-base text-slate-100 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/40"
+          />
+          @if (signupForm.dob().invalid() && signupForm.dob().touched()) {
+            <span class="text-xs text-red-400">{{ signupForm.dob().errors()[0]?.message }}</span>
+          }
+        </label>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        <label class="flex flex-col gap-2 text-sm">
+          <span class="font-semibold text-slate-200">Password</span>
+          <input
+            type="password"
+            [field]="signupForm.password"
+            class="rounded-2xl border border-slate-700 bg-slate-900/60 px-4 py-3 text-base text-slate-100 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/40"
+            placeholder="••••••••"
+          />
+          @if (signupForm.password().invalid() && signupForm.password().touched()) {
+            <span class="text-xs text-red-400">{{ signupForm.password().errors()[0]?.message }}</span>
+          }
+        </label>
+
+        <label class="flex flex-col gap-2 text-sm">
+          <span class="font-semibold text-slate-200">Confirm password</span>
+          <input
+            type="password"
+            [field]="signupForm.confirmPassword"
+            class="rounded-2xl border border-slate-700 bg-slate-900/60 px-4 py-3 text-base text-slate-100 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-500/40"
+            placeholder="••••••••"
+          />
+          @if (signupForm.confirmPassword().invalid() && signupForm.confirmPassword().touched()) {
+            <span class="text-xs text-red-400">{{ signupForm.confirmPassword().errors()[0]?.message }}</span>
+          }
+        </label>
+      </div>
+
+      @if (errorMessage()) {
+        <div class="rounded-2xl bg-red-500/10 border border-red-500/20 px-4 py-3 text-sm text-red-400">
+          {{ errorMessage() }}
+        </div>
+      }
 
       <button
         type="submit"
-        [disabled]="!signupForm().valid()"
+        [disabled]="!signupForm().valid() || isSubmitting()"
         class="w-full rounded-2xl bg-sky-500 py-3 text-base font-semibold text-slate-950 transition hover:bg-sky-400 disabled:cursor-not-allowed disabled:opacity-50"
       >
-        Create account
+        @if (isSubmitting()) {
+          <span>Creating account...</span>
+        } @else {
+          <span>Create account</span>
+        }
       </button>
     </form>
 
