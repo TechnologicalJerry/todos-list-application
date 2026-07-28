@@ -3,6 +3,7 @@ import cors from "cors";
 import responseTime from "response-time";
 import deserializeUser from "./middleware/deserializeUser";
 import { restResponseTimeHistogram } from "./utils/metrics";
+import registerRoutes from "./routes/index.routes";
 
 const app = express();
 
@@ -26,6 +27,8 @@ app.use(
 		}
 	})
 );
+
+registerRoutes(app);
 
 export default app;
 
