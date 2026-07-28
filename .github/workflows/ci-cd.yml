@@ -1,0 +1,113 @@
+name: GitHub Actions CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, production, staging, develop, 'feature/**' ]
+  pull_request:
+    branches: [ main, production, staging, develop ]
+  workflow_dispatch:
+    inputs:
+      target_env:
+        description: 'Select Environment to Deploy'
+        required: true
+        default: 'development'
+        type: choice
+        options:
+          - development
+          - staging
+          - production
+
+jobs:
+  # ====================================
+  # BUILD STAGE
+  # ====================================
+  build:
+    name: Build Express Server
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: 'express-server/package-lock.json'
+
+      - name: Install Dependencies
+        run: |
+          cd express-server
+          npm ci
+
+      - name: Typecheck TypeScript
+        run: |
+          cd express-server
+          npx tsc --noEmit
+
+  # ====================================
+  # TEST STAGE
+  # ====================================
+  test:
+    name: Run Test Suite
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: 'express-server/package-lock.json'
+
+      - name: Install Dependencies
+        run: |
+          cd express-server
+          npm ci
+
+      - name: Run Jest & Supertest Suite
+        run: |
+          cd express-server
+          npm test
+
+  # ====================================
+  # DEPLOYMENT STAGES
+  # ====================================
+  deploy-development:
+    name: Deploy to Development
+    needs: test
+    if: github.ref == 'refs/heads/develop' || startsWith(github.ref, 'refs/heads/feature/') || github.event.inputs.target_env == 'development'
+    runs-on: ubuntu-latest
+    environment: development
+    steps:
+      - name: Deploy Step
+        run: |
+          echo "Deploying Express Server to Development Environment..."
+          echo "Using configuration: .env.development"
+
+  deploy-staging:
+    name: Deploy to Staging
+    needs: test
+    if: github.ref == 'refs/heads/staging' || github.event.inputs.target_env == 'staging'
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: Deploy Step
+        run: |
+          echo "Deploying Express Server to Staging Environment..."
+          echo "Using configuration: .env.staging"
+
+  deploy-production:
+    name: Deploy to Production
+    needs: test
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/production' || github.event.inputs.target_env == 'production'
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Deploy Step
+        run: |
+          echo "Deploying Express Server to Production Environment..."
+          echo "Using configuration: .env.production"
