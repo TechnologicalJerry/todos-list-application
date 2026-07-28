@@ -53,16 +53,16 @@ import { object, number, string, TypeOf } from "zod";
 const payload = {
   body: object({
     title: string({
-      required_error: "Title is required",
+      message: "Title is required",
     }),
     description: string({
-      required_error: "Description is required",
+      message: "Description is required",
     }).min(120, "Description should be at least 120 characters long"),
     price: number({
-      required_error: "Price is required",
+      message: "Price is required",
     }),
     image: string({
-      required_error: "Image is required",
+      message: "Image is required",
     }),
   }),
 };
@@ -70,7 +70,7 @@ const payload = {
 const params = {
   params: object({
     productId: string({
-      required_error: "productId is required",
+      message: "productId is required",
     }),
   }),
 };

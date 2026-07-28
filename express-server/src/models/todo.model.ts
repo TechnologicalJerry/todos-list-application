@@ -5,7 +5,7 @@ export interface TodoInput {
   title: string;
   description?: string;
   completed?: boolean;
-  dueDate?: Date;
+  dueDate?: Date | string;
 }
 
 export interface TodoDocument extends TodoInput, mongoose.Document {
