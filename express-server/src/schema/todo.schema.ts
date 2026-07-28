@@ -2,7 +2,7 @@ import { object, string, boolean, date, TypeOf, optional } from "zod";
 
 export const createTodoSchema = object({
   body: object({
-    title: string({ required_error: "Title is required" }).min(1),
+    title: string({ message: "Title is required" }).min(1),
     description: string().optional(),
     completed: boolean().optional(),
     dueDate: string().datetime().optional(),
@@ -11,7 +11,7 @@ export const createTodoSchema = object({
 
 export const updateTodoSchema = object({
   params: object({
-    todoId: string({ required_error: "todoId is required" }),
+    todoId: string({ message: "todoId is required" }),
   }),
   body: object({
     title: string().min(1).optional(),
@@ -23,13 +23,13 @@ export const updateTodoSchema = object({
 
 export const getTodoSchema = object({
   params: object({
-    todoId: string({ required_error: "todoId is required" }),
+    todoId: string({ message: "todoId is required" }),
   }),
 });
 
 export const deleteTodoSchema = object({
   params: object({
-    todoId: string({ required_error: "todoId is required" }),
+    todoId: string({ message: "todoId is required" }),
   }),
 });
 
