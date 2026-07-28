@@ -16,8 +16,6 @@ app.listen(port, async () => {
 
   await connect();
 
-  routes(app);
-
   startMetricsServer();
 
   swaggerDocs(app, port);
