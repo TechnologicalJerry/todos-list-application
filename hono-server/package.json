@@ -1,0 +1,38 @@
+{
+  "name": "hono-todo-server",
+  "version": "1.0.0",
+  "description": "Production-ready RESTful Todo API using Hono, TypeScript, Drizzle ORM, and Vitest",
+  "main": "src/server.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx src/db/migrate.ts",
+    "db:studio": "drizzle-kit studio",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.12.1",
+    "@hono/zod-validator": "^0.2.2",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.33.0",
+    "hono": "^4.5.4",
+    "jose": "^5.6.3",
+    "pg": "^8.12.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20.14.12",
+    "@types/pg": "^8.11.6",
+    "drizzle-kit": "^0.24.0",
+    "pg-mem": "^3.0.4",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.4"
+  }
+}
